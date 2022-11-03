@@ -22,42 +22,56 @@ pub mod notes {
     }
 }
 
-// #[cfg(test)]    // Компилируем этот модуль только при запуске тестов. В самом приложении он не нужен.
-// mod tests {     // Модуль, содержащий тесты.
-//     use super::notes::Notes;   // Используем тип notes из родительского модуля.
+#[cfg(test)]
+mod tests {
+    use super::notes::Notes;
 
-//     #[test]
-//     fn add_note() {
-//         // Создадим новый объект типа Notes.
-//         let mut notes = Notes::new();
+    #[test]
+    fn add_note() {
+        let mut notes = Notes::new();
 
-//         // Добавляем заметку.
-//         let note = String::from("hello");
-//         notes.add(note.clone());
+        let note = String::from("hello");
+        notes.add(note.clone());
 
-//         // Проверяем, добавилась ли заметка.
-//         assert_eq!(&note, notes.list().last().unwrap());
-//     }
+        assert_eq!(&note, notes.list().last().unwrap());
+    }
 
-//     #[test]
-//     fn notes_len() {
-//         // Количество новых заметок
-//         const COUNT: usize = 10;
+    #[test]
+    fn remove_note() {
+        let mut notes = Notes::new();
 
-//         let mut notes = Notes::new(path);
+        let note = String::from("hello");
+        notes.add(note.clone());
 
-//         // Количество заметок до добавления новых.
-//         let initial_size = notes.list().len();
+        notes.remove();
 
-//         // Для значений counter с 0 до COUNT ...
-//         for counter in 0..COUNT {
-//             // ... добвляем заметку - текстовое представление значения счётчика.
-//             notes.add(counter.to_string())
-//         }
+        assert_eq!(notes.list().len(), 0);
+    }
 
-//         let notes_list = notes.list();
+    #[test]
+    fn show_notes() {
+        let mut notes = Notes::new();
 
-//         // Проверяем, что добавилось ровно COUNT заметок.
-//         assert_eq!(notes_list.len() - initial_size, COUNT);
-//     }
-// }
+        let note = String::from("hello");
+        notes.add(note.clone());
+
+        assert_eq!(&note, notes.list().last().unwrap());
+    }
+
+    #[test]
+    fn notes_len() {
+        const COUNT: usize = 10;
+
+        let mut notes = Notes::new();
+
+        let initial_size = notes.list().len();
+
+        for counter in 0..COUNT {
+            notes.add(counter.to_string())
+        }
+
+        let notes_list = notes.list();
+
+        assert_eq!(notes_list.len() - initial_size, COUNT);
+    }
+}

@@ -20,18 +20,3 @@ fn main() {
         }
     }
 }
-
-// #[cfg(test)]
-// mod tests {
-
-//     #[test]
-//     fn print_menu() {
-//         let note = "test note".to_string();
-//         let mut notes = Vec::new();
-//         notes.push(note);
-
-//         assert_eq!(notes.len(), 1);
-
-//     }
-
-// }
