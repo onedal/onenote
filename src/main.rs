@@ -1,8 +1,7 @@
-mod notes;
 mod engine;
+mod notes;
 
 use crate::notes::notes::Notes;
-
 
 fn main() {
     let mut notes = Notes::new();
@@ -12,21 +11,15 @@ fn main() {
 
         let command = engine::read_input();
 
-        match command.trim(){
+        match command.trim() {
             "show" => engine::show_notes(&notes.list()),
             "add" => notes.add(engine::read_input()),
             "remove" => notes.remove(),
             "quit" => break,
             _ => println!("Invalid command"),
         }
-
     }
 }
-
-
-
-
-
 
 // #[cfg(test)]
 // mod tests {
@@ -38,7 +31,7 @@ fn main() {
 //         notes.push(note);
 
 //         assert_eq!(notes.len(), 1);
-        
+
 //     }
 
 // }

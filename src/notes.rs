@@ -1,28 +1,26 @@
 pub mod notes {
-  pub struct Notes {
-      data: Vec<String>,
-  }
+    pub struct Notes {
+        data: Vec<String>,
+    }
 
-  impl Notes {
-      pub fn new() -> Self {
-          Self { data: vec![] }
-      }
+    impl Notes {
+        pub fn new() -> Self {
+            Self { data: vec![] }
+        }
 
-      pub fn add(&mut self, note: String) {
-          self.data.push(note);
-      }
+        pub fn add(&mut self, note: String) {
+            self.data.push(note);
+        }
 
-      pub fn list(&self) -> Vec<String> {
-          self.data.clone()
-      }
+        pub fn list(&self) -> Vec<String> {
+            self.data.clone()
+        }
 
-      pub fn remove(&mut self) {
-          self.data.pop();
-      }
-  }
-  
+        pub fn remove(&mut self) {
+            self.data.pop();
+        }
+    }
 }
-
 
 // #[cfg(test)]    // Компилируем этот модуль только при запуске тестов. В самом приложении он не нужен.
 // mod tests {     // Модуль, содержащий тесты.

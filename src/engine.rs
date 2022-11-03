@@ -1,15 +1,14 @@
-
 pub fn print_menu() {
-  println!();
-  println!();
-  println!("**** PROGRAM MENU ****");
-  println!("Enter command:");
-  println!("'show' - show all notes");
-  println!("'add' - add new note");
-  println!("'remove' - remove last note");
-  println!("'quit' - close program");
+    println!();
+    println!();
+    println!("**** PROGRAM MENU ****");
+    println!("Enter command:");
+    println!("'show' - show all notes");
+    println!("'add' - add new note");
+    println!("'remove' - remove last note");
+    println!("'quit' - close program");
 
-  println!("other - exit");
+    println!("other - exit");
 }
 
 pub fn read_input() -> String {
